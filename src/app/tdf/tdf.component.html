@@ -1,36 +1,43 @@
 <div>
     <form [formGroup]="signupForm">
-        <div>
-            <label for="un"> Username</label>
-            <input type="text" id="un" formControlName="username" />
-         </div>
-         <div *ngIf="signupForm.get('username')?.hasError('required') && signupForm.get('username')?.touched">
-            Username is required
-        </div>
-        <div *ngIf="signupForm.get('username')?.hasError('prohibited') && signupForm.get('username')?.touched">
-            Username contains prohibited word
-        </div>
-         
-    <div>
-    <label for="pw"> Password</label>
-    <input type="password" id="pw" formControlName="password" />
-    </div>
-    <div *ngIf="signupForm.get('password')?.hasError('prohibited') && signupForm.get('password')?.touched">
-         Cannot use password
-    </div>
-
-
-
-
-    <div>
-
-    <label for="cpw"> Confirm Password</label>
-    <input type="password" id="cpw" formControlName="confirmedpassword" />
-    </div>
-    
-    <br />
-    <br />
-    <div>
-    <button type="submit">Sign Up</button>
-    </div>
+      <div>
+        <label for="un">Username</label>
+        <input type="text" id="un" formControlName="username" />
+      </div>
+      <div *ngIf="signupForm.get('username')?.hasError('required') && signupForm.get('username')?.touched">
+        Username is required
+      </div>
+      <div *ngIf="signupForm.get('username')?.hasError('prohibited') && signupForm.get('username')?.touched">
+        Username contains prohibited word
+      </div>
+  
+      <div>
+        <label for="pw">Password</label>
+        <input type="password" id="pw" formControlName="password" />
+      </div>
+      <div *ngIf="signupForm.get('password')?.hasError('prohibited') && signupForm.get('password')?.touched">
+        Cannot use password
+      </div>
+  
+      <div>
+        <label for="gender">Gender</label>
+        <select id="gender" formControlName="genderselect">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+  
+      <div>
+        <label for="age">Age</label>
+        <input type="number" id="age" formControlName="ageselect" />
+      </div>
+  
+      <br />
+      <div>
+        <button type="submit">Sign Up</button>
+      </div>
     </form>
+  </div>
+  <div>
+    <pre>{{ signupForm.value | json }}</pre>
+  </div>

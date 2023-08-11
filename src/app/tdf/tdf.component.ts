@@ -12,9 +12,11 @@ import { avoidWord1 } from "./customValidation";
 export class TdfComponent implements OnInit {
 
   signupForm = this.formB.group({
-    username: ["Aaron",[Validators.required, avoidWord]],
+    username: ["",[Validators.required, avoidWord]],
     password: ["",[avoidWord1(/password/)]],
-    confirmedpassword: [""]
+    genderselect: [],
+    ageselect: [null, [Validators.required, Validators.min(18)]],
+
     });
     
     // signupForm = new FormGroup({
